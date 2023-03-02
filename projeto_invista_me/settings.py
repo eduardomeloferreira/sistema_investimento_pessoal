@@ -80,8 +80,12 @@ WSGI_APPLICATION = "projeto_invista_me.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD":"v3Rg3u7d9PXDj1F2ZPWR",
+        "HOST":"containers-us-west-48.railway.app", 
+        "PORT":"6336" 
     }
 }
 
