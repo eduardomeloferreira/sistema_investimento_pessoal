@@ -135,3 +135,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = "investimentos"
 LOGIN_URL = "login"
+CSRF_TRUSTED_ORIGINS = ['hhttps://sistemainvestimentopessoal-production.up.railway.app/']
