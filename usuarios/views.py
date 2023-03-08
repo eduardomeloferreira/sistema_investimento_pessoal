@@ -8,6 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @csrf_exempt 
+def login(): pass
+
+@csrf_exempt 
 def novo_usuario(request):
     if request.method == "POST":
         formulario = UserRegisterForm(request.POST)
