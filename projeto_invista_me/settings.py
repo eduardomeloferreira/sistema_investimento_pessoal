@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-o2#18=*%j3adi)48x*q98i54(+5&)o#1qmkdyf!d4=)93)frm1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://sistemainvestimentopessoal.up.railway.app', 'sistemainvestimentopessoal.up.railway.app']
+ALLOWED_HOSTS = ['sistemainvestimentopessoal.up.railway.app', 'https://sistemainvestimentopessoal.up.railway.app']
 
 
 # Application definition
@@ -137,4 +137,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = "investimentos"
 LOGIN_URL = "login"
-CSRF_TRUSTED_ORIGINS = ['https://sistemainvestimentopessoal.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://sistemainvestimentopessoal.up.railway.app/', 'sistemainvestimentopessoal.up.railway.app', 'https://sistemainvestimentopessoal.up.railway.app']
