@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .models import Investimento
 from .forms import InvestimentoForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 # def pagina_inicial(request):
@@ -43,6 +44,7 @@ def detalhe(request, id_investimento):
     return render(request, "investimentos/detalhe.html", context=dados)
 
 @login_required
+@csrf_exempt
 def criar(request):
     if request.method == "POST":
         investimento_form = InvestimentoForm(request.POST)
@@ -57,6 +59,7 @@ def criar(request):
         return render(request, "investimentos/novo_investimento.html", context=formulario)
 
 @login_required
+@csrf_exempt
 def editar(request, id_investimento):
     investimento = Investimento.objects.get(pk=id_investimento) # busco na tabela Investimento o objeto que tenha a primary key / pk = id do item)
     # Caso 1: pessoa está acessando a página "novo_investimento/1" pela primeira vez (só visualizando) -> GET. Buscando dados. Nesse caso, popularei o formulário com as informações referentes ao investimento escolhido (id) e retornarei para a tela o formulário já preenchido
@@ -71,6 +74,7 @@ def editar(request, id_investimento):
         return redirect("investimentos") # após salvar no banco de dados, usuário é redirecionado para a página "investimentos" (olhar em urls.py, esse é o "name" da nossa página inicial)
    
 @login_required
+@csrf_exempt
 def excluir(request, id_investimento):
     investimento = Investimento.objects.get(pk=id_investimento) # busco na tabela Investimento o objeto através da pk (primary key - id). Eu poderia usar outro parâmetro como data=..., valor=..., etc..
     # Por padrão, quando eu acesso uma página, estou fazendo a requisição GET. Quando eu envio dados através de uma página, estou fazendo a requisição POST. Ao confirmar uma exclusão, estou enviando um POST. Nessa parte, o script validará se é POST ou GET
